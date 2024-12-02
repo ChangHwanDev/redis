@@ -30,9 +30,11 @@ dependencies {
 
 	// lombok
 	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
 	// swagger
-	implementation 'org.webjars:swagger-ui:5.17.14'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
+	implementation 'org.webjars:swagger-ui:5.18.2'
 
 }
 

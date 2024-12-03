@@ -20,7 +20,7 @@ public class RedisString {
 
     public void set(StringRequest req) {
         String key = req.baseRequest().key();
-        StringModel newModel = new StringModel(key, req.Name());
+        StringModel newModel = new StringModel(key, req.name());
 
         redis.setData(key, newModel);
     }

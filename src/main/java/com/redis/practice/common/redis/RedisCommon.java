@@ -48,9 +48,10 @@ public class RedisCommon {
         template.opsForZSet().add(key, jsonValue, score);
     }
 
-    public <T> Set<T> rangeByScore(String key, Float minScore, Float maxScore, Class<T> clazz){
+
+    public <T> List<T> rangeByScore(String key, Float minScore, Float maxScore, Class<T> clazz){
         Set<String> jsonValues = template.opsForZSet().rangeByScore(key, minScore, maxScore);
-        Set<T> resultSet = new HashSet<T>();
+        List<T> resultSet = new ArrayList<>();
 
         if (jsonValues != null) {
             for (String jsonValue : jsonValues) {
@@ -71,7 +72,6 @@ public class RedisCommon {
         }
         return resultSet;
     }
-
     public <T> void addToListLeft(String key, T value) {
         String jsonValue = toJson(value);
         template.opsForList().leftPush(key, jsonValue);

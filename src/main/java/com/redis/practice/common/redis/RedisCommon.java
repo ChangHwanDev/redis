@@ -125,4 +125,18 @@ public class RedisCommon {
     private <T> T fromJson(String json, Class<T> clazz) {
         return gson.fromJson(json, clazz);
     }
+
+    public Boolean lock(Long key) {
+        return template
+                .opsForValue()
+                .setIfAbsent(generateKey(key), "lock", Duration.ofMillis(3_000));
+    }
+
+    public void unlock(Long key) {
+        template.delete(generateKey(key));
+    }
+
+    private String generateKey(Long key) {
+        return key.toString();
+    }
 }

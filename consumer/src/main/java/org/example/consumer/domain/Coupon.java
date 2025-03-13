@@ -1,4 +1,4 @@
-package com.redis.practice.domain.Coupon;
+package org.example.consumer.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
